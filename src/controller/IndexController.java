@@ -14,12 +14,10 @@ import com.sun.istack.internal.logging.Logger;
 
 @Controller
 public class IndexController {
-	
 	private Logger logger = Logger.getLogger(IndexController.class);
-	
 	@Autowired
 	@RequestMapping("/manager/login")
-	public String Login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+	public String Login(){
 			logger.info("½øÀ´ÁË£¡");
 		return "backendlogin";
 	}
