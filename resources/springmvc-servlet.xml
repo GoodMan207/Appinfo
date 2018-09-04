@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+        <context:component-scan base-package="controller,service,conttroller.Background,conttroller.Frontdesk"></context:component-scan>
+	<mvc:annotation-driven />
+
+	
+	<!-- 把操作静态文件转给WEB容器 -->
+    <mvc:default-servlet-handler/>
+
+	<!-- 全局异常处理 -->
+	<bean
+		class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+		<property name="exceptionMappings">
+			<props>
+				<prop key="java.lang.RuntimeException">error</prop>
+			</props>
+		</property>
+	</bean>
+
+
+	<!-- 完成视图的对应 -->
+	<!-- 对转向页面的路径解析。prefix：前缀， suffix：后缀 -->
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<!-- 放jsp的位置 -->
+		<property name="prefix" value="/WEB-INF/jsp/" />
+		<!-- 返回的视图必须都对应后缀是.jsp -->
+		<property name="suffix" value=".jsp" />
+	</bean>
+</beans>
