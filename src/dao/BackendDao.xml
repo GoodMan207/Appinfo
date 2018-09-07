@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.BackendDao">
+	<select id="DoLogin" parameterType="String" resultType="User">
+	select i.*,d.valueName as userTypeName from backend_user i INNER JOIN data_dictionary d ON d.id=i.userType 
+		<trim prefix="where" prefixOverrides="and | or">
+			<if test ="userCode!=null">
+				and userCode=#{userCode}
+			</if>
+		</trim>
+	</select>
+</mapper>
