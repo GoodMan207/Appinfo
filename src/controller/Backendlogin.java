@@ -1,7 +1,9 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -18,8 +20,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.sun.istack.internal.logging.Logger;
 import com.sun.org.apache.bcel.internal.Constants;
 
+import pojo.Dictionary;
+import pojo.Info;
 import pojo.User;
-import service.BackendService;
+import service.backend.BackendService;
 
 
 @Controller
@@ -76,4 +80,15 @@ public class Backendlogin {
 		return "backendlogin";
 	}
 	
+	
+//	@RequestMapping("backend/app/list")
+//	public String Show(HttpServletRequest request, HttpServletResponse response,HttpSession session) {
+//		List<Info> list = new ArrayList<Info>();
+//		List<Dictionary> flatFormList = new ArrayList<Dictionary>();
+//		list=bs.BackShowAppList();
+//		flatFormList=bs.flatForms();
+//		request.setAttribute("flatFormList", flatFormList);
+//		request.setAttribute("appInfoList", list);
+//		return "backend/applist";
+//	}
 }

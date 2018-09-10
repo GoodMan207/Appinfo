@@ -29,5 +29,9 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<mappers>
 	<mapper resource="dao/BackendDao.xml"/>
 	<mapper resource="dao/DevDao.xml"/>
+	<mapper resource="dao/AppInfoMapper.xml"/>
+	<mapper resource="dao/DataDictionaryMapper.xml"/>
+	<mapper resource="dao/AppCategoryMapper.xml"/>
+	<mapper resource="dao/AppVersionMapper.xml"/>
 	</mappers>
 </configuration>

@@ -161,7 +161,7 @@
 										<td tabindex="0" class="sorting_1">${appInfo.softwareName}</td>
 										<td>${appInfo.APKName }</td>
 										<td>${appInfo.softwareSize }</td>
-										<td>${appInfo.flatformName }</td>
+										<td>${appInfo.flatformName}</td>
 										<td>${appInfo.categoryLevel1Name } -> ${appInfo.categoryLevel2Name } -> ${appInfo.categoryLevel3Name }</td>
 										<td>${appInfo.statusName }</td>
 										<td>${appInfo.downloads }</td>
