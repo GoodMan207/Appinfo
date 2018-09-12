@@ -51,13 +51,11 @@ public class Backendlogin {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		if(null != user){//登录成功
-			//放入session
+		if(null != user){
+			//登录成功
 			session.setAttribute("userSession", user);
-			//页面跳转（main.jsp）
 			return "redirect:/manager/backend/main";
 		}else{
-			//页面跳转（login.jsp）带出提示信息--转发
 			request.setAttribute("error", "用户名或密码不正确");
 			return "backendlogin";
 		}
@@ -81,14 +79,5 @@ public class Backendlogin {
 	}
 	
 	
-//	@RequestMapping("backend/app/list")
-//	public String Show(HttpServletRequest request, HttpServletResponse response,HttpSession session) {
-//		List<Info> list = new ArrayList<Info>();
-//		List<Dictionary> flatFormList = new ArrayList<Dictionary>();
-//		list=bs.BackShowAppList();
-//		flatFormList=bs.flatForms();
-//		request.setAttribute("flatFormList", flatFormList);
-//		request.setAttribute("appInfoList", list);
-//		return "backend/applist";
-//	}
+
 }

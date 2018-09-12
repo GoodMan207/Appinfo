@@ -19,10 +19,9 @@ import pojo.Dictionary;
 import pojo.Info;
 import pojo.AppVersion;
 import service.backend.AppService;
-import service.backend.DataDictionaryService;
+import service.developer.DataDictionaryService;
 import service.developer.AppCategoryService;
 import service.developer.AppVersionService;
-import tools.Constants;
 import tools.PageSupport;
 
 @Controller
@@ -57,7 +56,7 @@ public class BackendController {
 		List<Category> categoryLevel2List = null;
 		List<Category> categoryLevel3List = null;
 		//页面容量
-		int pageSize = Constants.pageSize;
+		int pageSize = 5;
 		//当前页码
 		Integer currentPageNo = 1;
 		
@@ -125,7 +124,7 @@ public class BackendController {
 		model.addAttribute("queryCategoryLevel3", queryCategoryLevel3);
 		model.addAttribute("queryFlatformId", queryFlatformId);
 		
-		//二级分类列表和三级分类列表---回显
+		//二级分类列表和三级分类列表
 		if(queryCategoryLevel2 != null && !queryCategoryLevel2.equals("")){
 			categoryLevel2List = getCategoryList(queryCategoryLevel1.toString());
 			model.addAttribute("categoryLevel2List", categoryLevel2List);
@@ -167,7 +166,7 @@ public class BackendController {
 	@RequestMapping(value="/categorylevellist.json",method=RequestMethod.GET)
 	@ResponseBody
 	public List<Category> getAppCategoryList (@RequestParam String pid){
-		logger.info("getAppCategoryList pid ============ " + pid);
+		logger.info("getAppCategoryList pid" + pid);
 		if(pid.equals("")) pid = null;
 		return getCategoryList(pid);
 	}
@@ -202,13 +201,13 @@ public class BackendController {
 	}
 	@RequestMapping(value="/checksave",method=RequestMethod.POST)
 	public String checkSave(Info appInfo){
-		logger.info("appInfo =========== > " + appInfo.getStatus());
+
 		try {
 			if(appService.updateSatus(appInfo.getStatus(),appInfo.getId())){
 				return "redirect:/manager/backend/app/list";
 			}
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		return "backend/appcheck";
